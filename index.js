@@ -57,6 +57,10 @@ app.post('/products', controllers.postProducts);
 //     console.log(res);
 // })
 
+app.get("/", function(req, res){
+    res.send("backend")
+})
+
 
 
 mongoose.connect(process.env.MONGODB_URI)
