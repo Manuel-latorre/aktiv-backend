@@ -15,7 +15,16 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/products', controllers.getProducts);
+app.get('/cart', controllers.getCart);
+app.get('/products/search', controllers.searchByName)
+app.get('/product', controllers.getProductById)
+
+app.post('/cart', controllers.addProductToCart);
 app.post('/products', controllers.postProducts);
+
+app.put('/updateQuantity', controllers.putQuantityCart)
+
+app.delete('/cart', controllers.deleteProductCart);
 
 
 /* MERCADO PAGO */
