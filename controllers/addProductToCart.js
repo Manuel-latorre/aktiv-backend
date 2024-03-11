@@ -8,7 +8,7 @@ const addProductCart  = async (req, res) => {
 
     const ifEmpty = name !== "" && imageCard !== "" && price !== "" && id_ !== "";
 
-    const ifStayIncart = await Cart.findOne({id_});
+    const ifStayIncart = await Cart.findById({id_});
 
     if(!ifExist){
         res.status(400).json({
