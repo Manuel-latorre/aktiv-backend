@@ -17,14 +17,14 @@ app.use(express.json())
 app.get('/products', controllers.getProducts);
 app.get('/cart', controllers.getCart);
 app.get('/products/search', controllers.searchByName)
-app.get('/product', controllers.getProductById)
+app.get('/product/:id', controllers.getProductById)
 
 app.post('/cart', controllers.addProductToCart);
 app.post('/products', controllers.postProducts);
 
-app.put('/updateQuantity', controllers.putQuantityCart)
+app.put('/updateQuantity/:productId', controllers.putQuantityCart)
 
-app.delete('/cart', controllers.deleteProductCart);
+app.delete('/productCart/:productId', controllers.deleteProductCart);
 
 
 /* MERCADO PAGO */
