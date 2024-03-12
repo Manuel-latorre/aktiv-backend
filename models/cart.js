@@ -5,6 +5,7 @@ const cartSchema = new Schema({
     imageCard: {type: String, required: true},
     quantity: {type: Number, required: true},
     price: { type: Number, required: true},
+    size:{type: String, required: true}
 })
 
 module.exports = model("Cart", cartSchema);
