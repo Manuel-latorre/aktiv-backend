@@ -2,11 +2,11 @@ const Cart  = require('../models/cart');
 const Product = require('../models/products');
 
 const addProductCart  = async (req, res) => {
-    const {name, imageCard, price} = req.body;
+    const {name, imageCard, price, size} = req.body;
 
     const ifExist = await Product.findOne({name});
 
-    const ifEmpty = name !== "" && imageCard !== "" && price !== "";
+    const ifEmpty = name !== "" && imageCard !== "" && price !== "" && size !== "";
 
     const ifStayIncart = await Cart.findOne({name});
 
@@ -15,11 +15,11 @@ const addProductCart  = async (req, res) => {
             mensaje: "This product is not available",
         });
     }else if (ifEmpty && !ifStayIncart){
-        const newProdInCart = new Cart({name, imageCard, price, quantity: 1});
+        const newProdInCart = new Cart({name, imageCard, price, size, quantity: 1});
 
         await Product.findByIdAndUpdate(
             ifExist?._id,
-            {inCart: true, name, imageCard, price},
+            {inCart: true, name, imageCard, price, size},
             {new: true}
         )
 
