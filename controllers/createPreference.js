@@ -1,4 +1,4 @@
-const { MercadoPagoConfig, Preference } = require('mercadopago');
+import { MercadoPagoConfig, Preference } from "mercadopago";
 
 
 const client = new MercadoPagoConfig({ accessToken: process.env.YOUR_ACCESS_TOKEN });
@@ -8,9 +8,9 @@ const createPreference = async (req, res) => {
         const body = {
             items: [
                 {
-                    name: req.body.name,
+                    title: req.body.name,
                     quantity: Number(req.body.quantity),
-                    price: Number(req.body.price),
+                    unit_price: Number(req.body.price),
                     currency_id: "ARS"
                 },
             ],
