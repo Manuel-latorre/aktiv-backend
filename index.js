@@ -21,6 +21,7 @@ app.get('/product/:id', controllers.getProductById)
 
 app.post('/cart', controllers.addProductToCart);
 app.post('/products', controllers.postProducts);
+app.post('/create_preference', controllers.createPreference);
 
 app.put('/updateQuantity/:productId', controllers.putQuantityCart)
 
