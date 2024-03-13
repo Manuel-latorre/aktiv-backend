@@ -10,7 +10,7 @@ const createPreference = async (req, res) => {
         const body = {
             items: [
                 {
-                    title: req.body.name,
+                    title: String(req.body.name),
                     quantity: Number(req.body.quantity),
                     unit_price: Number(req.body.price),
                     currency_id: "ARS"
